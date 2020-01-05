@@ -1,9 +1,10 @@
-import find from 'find';
-import SaveFile from './SaveFile.js';
+var find = require('find');
+var path = require('path');
+var SaveFile = require('./SaveFile.js');
 
-export default class FileManager {
-    constructor() {
-        this._dir = process.cwd();
+module.exports = class FileManager {
+    constructor(basepath) {
+        this._dir = path.normalize(basepath);
         this._files = [];
         this.refreshFiles();
     }

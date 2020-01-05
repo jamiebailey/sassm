@@ -11,6 +11,8 @@ app.on('ready', () => {
 
     win.loadFile('app.html');
 
+    win.webContents.openDevTools();
+
     win.on('closed', () => {
         win= null
     })

@@ -1,4 +1,4 @@
-import path from 'path';
+const path = require('path');
 
 const fs = require('fs');
 
@@ -8,7 +8,7 @@ const VERSIONS = {
     0x5E764593: '1.01 Modified EXE'
 };
 
-export default class SaveFile {
+module.exports = class SaveFile {
     constructor(filepath) {
         let buff = Buffer.from(filepath);
         this.id = buff.toString('hex');
