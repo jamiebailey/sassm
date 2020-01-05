@@ -1,4 +1,12 @@
+/* Import Google fonts */
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+$primary-font: 'Roboto';
+
 * {
     box-sizing: border-box;
-    background-color: red;
+}
+
+html, body {
+    font-family: $primary-font;
 }
