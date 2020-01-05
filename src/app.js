@@ -8,9 +8,9 @@ import FileManager from './object/FileManager';
 // setup react
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Save from './components/Save';
+import App from './components/App';
 
-ReactDOM.render(<Save />, window.document.querySelector('#app'));
+ReactDOM.render(<App />, window.document.getElementById('app'));
 
 
 var homedir = require('os').homedir();
