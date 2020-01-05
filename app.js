@@ -1,24 +1,24 @@
-import express from 'express';
-import FileManager from './src/object/FileManager.js';
+import {app, BrowserWindow} from 'electron';
 
-var fm = new FileManager();
-
-var app = express();
-
-app.get('/api/saves', (req, res) => {
-    let saves = [];
-    let saveFiles = fm.getFiles();
-    saveFiles.forEach((file) => {
-        saves.push({
-            id: file.id
-        });
+app.on('ready', () => {
+    let win = new BrowserWindow({
+        width: 800,
+        height: 600,
+        webPreferences: {
+            nodeIntegration: true
+        }
     });
-    res.json(saves);
+
+    win.loadFile('app.html');
+
+    win.on('closed', () => {
+        win= null
+    })
+
 });
 
-app.get('/api/saves/:id', (req, res) => {
-    let id = req.params['id'];
-    res.json(fm.getFile(id).toJSON());
-});
-
-app.listen(8080);
+app.on('window-all-closed', () => {
+    if(process.platform !== 'darwin') {
+        app.quit()
+    }
+})
