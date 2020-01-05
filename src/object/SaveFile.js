@@ -1,6 +1,5 @@
-const path = require('path');
-
-const fs = require('fs');
+import path from 'path';
+import fs from 'fs';
 
 const VERSIONS = {
     0x7581DA35: '1.00 Unmodified EXE',
