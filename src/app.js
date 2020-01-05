@@ -1,5 +1,9 @@
-const path = require('path');
-var FileManager = require('./object/FileManager');
+// load stylesheet
+import '../assets/app.scss';
+
+// load app
+import path from 'path';
+import FileManager from './object/FileManager';
 
 var homedir = require('os').homedir();
 
