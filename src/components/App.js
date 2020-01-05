@@ -5,8 +5,7 @@ export default class App extends React.Component {
     render() {
         return (
             <div>
-                <SaveList />
-                <SaveList />
+                <SaveList path="C:\\Users\\Jamie\\Documents\\GTA San Andreas User Files" />
             </div>
         )
     }
