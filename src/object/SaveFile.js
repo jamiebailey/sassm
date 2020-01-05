@@ -2,7 +2,7 @@ import path from 'path';
 import fs from 'fs';
 import VERSIONS from '../constants/versions';
 
-module.exports = class SaveFile {
+export default class SaveFile {
     constructor(filepath) {
         let buff = Buffer.from(filepath);
         this.id = buff.toString('hex');
