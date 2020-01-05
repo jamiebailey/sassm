@@ -1,5 +1,5 @@
 const path = require('path');
-var FileManager = require('./src/object/FileManager');
+var FileManager = require('./object/FileManager');
 
 var homedir = require('os').homedir();
 
