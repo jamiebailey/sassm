@@ -21,7 +21,9 @@ export default class SaveFile {
     }
 
     getSaveName() {
-        return this._getBlockSlice(0, 0x0004, 0x0068).toString('utf8');
+        let str = this._getBlockSlice(0, 0x0004, 0x0068).toString('utf8');
+        let end = str.indexOf('\0');
+        return str.slice(0, end);
     }
 
     getGameMonth() {
