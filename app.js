@@ -6,6 +6,8 @@ app.on('ready', () => {
         height: 600,
         minWidth: 1000,
         minHeight: 600,
+        transparent: true,
+        frame: false,
         webPreferences: {
             nodeIntegration: true
         }
