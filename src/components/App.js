@@ -11,6 +11,7 @@ export default class App extends React.Component {
         return (
             <div>
                 <SaveList path={sauf} />
+                <SaveList path={sauf} />
             </div>
         )
     }
