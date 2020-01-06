@@ -28,6 +28,15 @@ export default class SaveFile {
         return total;
     }
 
+    updateChecksum() {
+        let checksum = this.getChecksum();
+        let checkBuf = Buffer.allocUnsafe(4);
+        checkBuf.writeUInt32LE(checksum);
+        let lastBlock = this._blocks[this._blocks.length - 1];
+        lastBlock = lastBlock.slice(0, lastBlock.length - 4);
+        this._blocks[this._blocks.length - 1] = Buffer.concat([lastBlock, checkBuf]);
+    }
+
     getVersionID() {
         return this._getBlockSlice(0, 0x0000, 0x0004).readUInt32BE();
     }
