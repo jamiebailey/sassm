@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import path from 'path';
 import store from '../store';
-import { setActiveDir } from '../actions';
+import { setStorageDir } from '../actions';
 
-export default class WindowActive extends Component {
+export default class WindowStorage extends Component {
     constructor(props) {
         super(props);
         this.state = this.getCurrentStateFromStore();
     }
     
     getCurrentStateFromStore() {
-        return store.getState().activeTab
+        return store.getState().storageTab;
     }
 
     componentDidMount() {
@@ -25,17 +25,17 @@ export default class WindowActive extends Component {
     }
 
     updatePath(pathname) {
-        store.dispatch(setActiveDir(path.resolve(pathname)));
+        store.dispatch(setStorageDir(path.resolve(pathname)));
     }
 
     render() {
         let output = null;
         if (this.state.show) {
-            output = <div><b>ACTIVE:</b> {this.state.path}</div>
+            output = <div><b>STORAGE:</b> {this.state.path}</div>
         }
 
         return (
-            <div className="WindowActive">
+            <div className="WindowStorage">
                 {output}
             </div>
         );

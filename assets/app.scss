@@ -68,6 +68,13 @@ html, body {
         padding: $padding;
         z-index: 5;
     }
+    > .WindowStorage {
+        position: fixed;
+        top: 0;
+        left: 150px;
+        padding: $padding;
+        z-index: 5;
+    }
     > .WindowOptions {
         z-index: 1;
         position: fixed;
