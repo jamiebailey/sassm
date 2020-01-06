@@ -10,8 +10,8 @@ export default class Save extends React.Component {
                     <h3 className="title">{file.getSaveName()}</h3>
                 </div>
                 <div className="right">
-                    <div>${file.getPlayerMoney()}</div>
-                    <div>{file.getPlayerArmor()}</div>
+                    <div><b>${file.getPlayerMoney()}</b></div>
+                    <div>{Math.round(file.getPlayerArmor())}</div>
                 </div>
                 <small className="version">{file.getVersionName()} ({file.getVersionID()})</small>
             </div>
