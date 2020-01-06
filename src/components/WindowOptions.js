@@ -20,7 +20,7 @@ export default class WindowOptions extends Component {
 
     render() {
         return (
-            <div className="WindowTop">
+            <div className="WindowOptions">
                 <a onClick={this.minimise}>🗕</a>
                 <a onClick={this.maximise}>🗖</a>
                 <a onClick={this.close}>✖</a>
