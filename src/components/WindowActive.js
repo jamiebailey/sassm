@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
 import path from 'path';
 import store from '../store';
-import PathBar from './PathBar';
-import SaveList from './SaveList';
-import { setAppActiveDir } from '../actions';
+import { setActiveDir } from '../actions';
 
-export default class ActiveList extends Component {
-
+export default class WindowActive extends Component {
     constructor(props) {
         super(props);
-        this.state = this.getCurrentStateFromStore()
+        this.state = this.getCurrentStateFromStore();
     }
-
+    
     getCurrentStateFromStore() {
         return {
-            path: store.getState().activeList.path
+            path: store.getState().activeTab.path
         }
     }
 
@@ -32,15 +29,13 @@ export default class ActiveList extends Component {
     }
 
     updatePath(pathname) {
-        store.dispatch(setAppActiveDir(path.resolve(pathname)));
+        store.dispatch(setActiveDir(path.resolve(pathname)));
     }
 
     render() {
         return (
-            <div className="ActiveList">
-                <h2>Active</h2>
-                <PathBar path={this.state.path} callback={this.updatePath} />
-                <SaveList />
+            <div className="WindowActive">
+            <div><b>ACTIVE:</b> {this.state.path}</div>
             </div>
         );
     }

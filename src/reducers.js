@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import activeList from './reducers/activeList';
-import storeList from './reducers/storeList';
+import activeTab from './reducers/activeTab';
+import storageList from './reducers/storageTab';
 
 export default combineReducers({
-    activeList,
-    storeList
+    activeTab,
+    storageList
 });
