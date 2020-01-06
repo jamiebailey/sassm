@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import ActiveList from './ActiveList';
-import StoreList from './StoreList';
+import WindowOptions from './WindowOptions';
 
-export default class App extends Component {
+
+export default class Top extends Component {
     render() {
         return (
-            <div>
-                <ActiveList />
-                <StoreList />
+            <div className="App">
+                <WindowOptions />
             </div>
         );
     }

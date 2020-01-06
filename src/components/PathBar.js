@@ -20,9 +20,8 @@ export default class ActiveList extends Component {
 
     render() {
         return (
-            <div className="PathBar">
-                <button onClick={this.handleClick}>Change</button>
-                <div>{this.props.path}</div>
+            <div className="PathBar"  onClick={this.handleClick}>
+                <div title={this.props.path}>{this.props.path}</div>
             </div>
         );
     }

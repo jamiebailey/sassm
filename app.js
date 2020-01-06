@@ -2,8 +2,10 @@ const {app, BrowserWindow} = require('electron');
 
 app.on('ready', () => {
     let win = new BrowserWindow({
-        width: 800,
+        width: 1200,
         height: 600,
+        minWidth: 1000,
+        minHeight: 600,
         webPreferences: {
             nodeIntegration: true
         }
@@ -11,6 +13,7 @@ app.on('ready', () => {
 
     win.loadFile('index.html');
 
+    win.removeMenu();
     win.webContents.openDevTools();
 
     win.on('closed', () => {

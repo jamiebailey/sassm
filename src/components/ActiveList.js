@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import path from 'path';
 import store from '../store';
 import PathBar from './PathBar';
+import SaveList from './SaveList';
 import { setAppActiveDir } from '../actions';
 
 export default class ActiveList extends Component {
@@ -37,7 +38,9 @@ export default class ActiveList extends Component {
     render() {
         return (
             <div className="ActiveList">
+                <h2>Active</h2>
                 <PathBar path={this.state.path} callback={this.updatePath} />
+                <SaveList />
             </div>
         );
     }
