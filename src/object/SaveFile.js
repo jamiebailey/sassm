@@ -10,20 +10,22 @@ export default class SaveFile {
         this._path = filepath;
         this._binary = fs.readFileSync(this._path);
         this._readBlocks();
-        this.getChecksum();
     }
 
     getChecksum() {
         let total = 0;
-        this._binary.slice(0, 0x317FC).toJSON().data.forEach((val) => {
-            total += val;
+        this._blocks.forEach((block) => {
+            let data = block.toJSON().data;
+            total += 363; // add 'BLOCK'
+            block.toJSON().data.forEach((val) => {
+                total += val;
+            });
         });
-        console.log(this.getSaveName());
-        console.log('total', total);
-
-        let checksum = this._binary.slice(this._binary.length - 4, this._binary.length).readUInt32LE();
-        console.log('lbyte', checksum);
-
+        let lastBlock = this._blocks[this._blocks.length - 1];
+        lastBlock.slice(-4).toJSON().data.forEach((val) => {
+            total -= val;
+        });
+        return total;
     }
 
     getVersionID() {
