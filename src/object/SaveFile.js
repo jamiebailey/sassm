@@ -37,6 +37,32 @@ export default class SaveFile {
         this._blocks[this._blocks.length - 1] = Buffer.concat([lastBlock, checkBuf]);
     }
 
+    setSaveName(string) {
+        // Update first block
+        let buffer = Buffer.from(string + '\0');
+        buffer = Buffer.concat([buffer, Buffer.allocUnsafe(100 - buffer.length).fill(0)]);
+        this._blocks[0] = Buffer.concat([this._getBlockSlice(0, 0x0000, 0x0004), buffer, this._getBlockSlice(0, 0x0068, 0x0138)]);
+        // Update checksum
+        this.updateChecksum();
+    }
+
+    rewriteFile() {
+        // Combine blocks
+        let blockPrefix = Buffer.from('BLOCK');
+        let output = null;
+        this._blocks.forEach((block) => {
+            if(output === null) {
+                output = blockPrefix;
+            } else {
+                output = Buffer.concat([output, blockPrefix]);
+            }
+            output = Buffer.concat([output, block]);
+        });
+
+        // Save output
+        fs.writeFileSync(this._path, output);
+    }
+
     getVersionID() {
         return this._getBlockSlice(0, 0x0000, 0x0004).readUInt32BE();
     }
