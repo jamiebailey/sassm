@@ -1,17 +1,14 @@
-import React from 'react';
-import path from 'path';
-import SaveList from './App/SaveList';
+import React, { Component } from 'react';
+import ActiveList from './ActiveList';
+import StoreList from './StoreList';
 
-
-export default class App extends React.Component {
+export default class App extends Component {
     render() {
-        let homedir = require('os').homedir();
-        let sauf = path.join(homedir, 'Documents', 'GTA San Andreas User Files');
-
         return (
             <div>
-                <SaveList path={sauf} />
+                <ActiveList />
+                <StoreList />
             </div>
-        )
+        );
     }
 }

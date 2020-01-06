@@ -9,7 +9,7 @@ app.on('ready', () => {
         }
     });
 
-    win.loadFile('app.html');
+    win.loadFile('index.html');
 
     win.webContents.openDevTools();
 

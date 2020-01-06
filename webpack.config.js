@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-    entry: './src/app.js',
+    entry: path.join(__dirname, 'src', 'index.js'),
     target: 'electron-renderer',
     output: {
         path: path.resolve(__dirname, 'build'),
