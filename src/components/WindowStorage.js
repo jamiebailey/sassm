@@ -25,14 +25,12 @@ export default class WindowStorage extends Component {
     }
 
     render() {
-        let output = null;
-        if (this.state.show) {
-            output = <div><Header title="STORAGE" path={this.state.path} /></div>
+        if(!this.state.show) {
+            return '';
         }
-
         return (
             <div className="WindowStorage">
-                {output}
+                <div><Header title="STORAGE" path={this.state.path} /></div>
             </div>
         );
     }

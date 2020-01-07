@@ -10,6 +10,23 @@ $button-background-color: lighten($primary-background-color, 5%);
 
 $padding: 4px;
 
+%window {
+    position: fixed;
+    top: 0;
+    left: 150px;
+    width: calc(100% - 150px);
+    height: 100%;
+    padding: $padding;
+    z-index: 5;
+    > .Header {
+        height: 40px;
+    }
+    > .Body {
+        margin-left: -$padding;
+        height: calc(100% - 40px);
+    }
+}
+
 %button {
     background-color: $button-background-color;
     padding: $padding;
@@ -62,21 +79,13 @@ html, body {
         }
     }
     > .WindowActive {
-        position: fixed;
-        top: 0;
-        left: 150px;
-        padding: $padding;
-        z-index: 5;
+        @extend %window;
     }
     > .WindowStorage {
-        position: fixed;
-        top: 0;
-        left: 150px;
-        padding: $padding;
-        z-index: 5;
+        @extend %window;
     }
     > .WindowOptions {
-        z-index: 1;
+        z-index: 10000;
         position: fixed;
         right: 0;
         top: 0;
@@ -88,5 +97,9 @@ html, body {
             width: 30px;
             height: 100%;
         }
+    }
+    .Body {
+        background-color: darken($primary-background-color, 1%);
+        padding: $padding;
     }
 }

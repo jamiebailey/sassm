@@ -30,13 +30,12 @@ export default class WindowSettings extends Component {
     }
 
     render() {
-        let output = null;
-        if (this.state.settingsTab.show) {
-            output = <div><Header title="SETTINGS" /></div>
+        if (!this.state.settingsTab.show) {
+            return '';
         }
         return (
             <div className="WindowStorage">
-                {output}
+                <div><Header title="SETTINGS" /></div>
             </div>
         );
     }

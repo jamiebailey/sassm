@@ -25,14 +25,13 @@ export default class WindowActive extends Component {
     }
 
     render() {
-        let output = null;
-        if (this.state.show) {
-            output = <div><WindowHeader title="ACTIVE" path={this.state.path} /></div>
+        if (!this.state.show) {
+            return '';
         }
-
         return (
             <div className="WindowActive">
-                {output}
+                <WindowHeader title="ACTIVE" path={this.state.path} />
+                <div className="Body">BODY</div>
             </div>
         );
     }
