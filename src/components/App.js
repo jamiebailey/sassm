@@ -3,6 +3,7 @@ import WindowOptions from './WindowOptions';
 import WindowLeftMenu from './WindowLeftMenu';
 import WindowActive from './WindowActive';
 import WindowStorage from './WindowStorage';
+import WindowSettings from './WindowSettings';
 
 
 export default class App extends Component {
@@ -13,6 +14,7 @@ export default class App extends Component {
                 <WindowLeftMenu />
                 <WindowActive />
                 <WindowStorage />
+                <WindowSettings />
             </div>
         );
     }

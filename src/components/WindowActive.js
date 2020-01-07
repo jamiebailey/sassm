@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import path from 'path';
 import store from '../store';
-import { setActiveDir } from '../actions';
+import WindowHeader from './Window/Header';
 
 export default class WindowActive extends Component {
     constructor(props) {
@@ -24,14 +24,10 @@ export default class WindowActive extends Component {
         this.unsubscribeStore();
     }
 
-    updatePath(pathname) {
-        store.dispatch(setActiveDir(path.resolve(pathname)));
-    }
-
     render() {
         let output = null;
         if (this.state.show) {
-            output = <div><b>ACTIVE:</b> {this.state.path}</div>
+            output = <div><WindowHeader title="ACTIVE" path={this.state.path} /></div>
         }
 
         return (

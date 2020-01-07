@@ -1,4 +1,4 @@
-import {SET_ACTIVE_DIR, TOGGLE_ACTIVE_TAB} from '../actions';
+import { SET_DIR, SHOW_TAB } from '../actions';
 
 export default (state = null, action) => {
 
@@ -11,11 +11,13 @@ export default (state = null, action) => {
     }
 
     switch(action.type) {
-        case TOGGLE_ACTIVE_TAB:
-            state.show = action.show;
+        case SET_DIR:
+            if(action.name === 'active') {
+                state.path = action.path;
+            }
             return state;
-        case SET_ACTIVE_DIR:
-            state.path = action.path;
+        case SHOW_TAB:
+            state.show = (action.name === 'active');
             return state;
         default:
             return state;

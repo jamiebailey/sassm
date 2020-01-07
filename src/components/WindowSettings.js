@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import path from 'path';
 import store from '../store';
 import Header from './Window/Header';
+import { setDir } from '../actions';
 
-export default class WindowStorage extends Component {
+export default class WindowSettings extends Component {
     constructor(props) {
         super(props);
         this.state = this.getCurrentStateFromStore();
     }
     
     getCurrentStateFromStore() {
-        return store.getState().storageTab;
+        return store.getState();
     }
 
     componentDidMount() {
@@ -24,12 +25,15 @@ export default class WindowStorage extends Component {
         this.unsubscribeStore();
     }
 
+    updatePath(name, pathname) {
+        store.dispatch(setDir(name, path.resolve(pathname)));
+    }
+
     render() {
         let output = null;
-        if (this.state.show) {
-            output = <div><Header title="STORAGE" path={this.state.path} /></div>
+        if (this.state.settingsTab.show) {
+            output = <div><Header title="SETTINGS" /></div>
         }
-
         return (
             <div className="WindowStorage">
                 {output}
