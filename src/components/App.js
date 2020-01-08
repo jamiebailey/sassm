@@ -11,16 +11,9 @@ export default class App extends Component {
 
     render() {
         return <h1>
-            <Left
-                items={[
-                    {
-                        text: 'hello'
-                    },
-                    {
-                        text: 'world'
-                    }
-                ]}
-            />
+            <Left items={[
+                    {text: 'Exit', onClick: this.close}
+                ]} />
         </h1>
     }
 }
