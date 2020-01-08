@@ -30,9 +30,15 @@ let defaultActiveDir = path.resolve(require('os').homedir(), './Documents/GTA Sa
 if(!fs.existsSync(defaultActiveDir)) {
     throw 'Could not find GTA SA user files directory: \'' + defaultActiveDir + '\''; 
 }
-
-// Load default page
 store.dispatch(setDir('active', defaultActiveDir));
+
+// Set default storage dir
+let defaultStorageDir = path.join(remote.app.getAppPath(), 'saves');
+if(!fs.existsSync(defaultStorageDir)) {
+    fs.mkdirSync(defaultStorageDir);
+}
+store.dispatch(setDir('storage', defaultStorageDir));
+
 store.dispatch(showTab('active'));
 
 // Render app
