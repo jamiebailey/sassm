@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
-import WindowOptions from './WindowOptions';
-import WindowLeftMenu from './WindowLeftMenu';
-import WindowActive from './WindowActive';
-import WindowStorage from './WindowStorage';
-import WindowSettings from './WindowSettings';
-
+import { remote } from 'electron';
+import Left from './AppLeft';
 
 export default class App extends Component {
+
+    close = () => {
+        let window = remote.getCurrentWindow();
+        window.close();
+    }
+
     render() {
-        return (
-            <div className="App">
-                <WindowOptions />
-                <WindowLeftMenu />
-                <WindowActive />
-                <WindowStorage />
-                <WindowSettings />
-            </div>
-        );
+        return <h1>
+            <Left
+                items={[
+                    {
+                        text: 'hello'
+                    },
+                    {
+                        text: 'world'
+                    }
+                ]}
+            />
+        </h1>
     }
 }
