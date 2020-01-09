@@ -1,17 +1,29 @@
 import { connect } from 'react-redux';
-import { exit } from '../actions';
+import { exit, maximize, minimize } from '../actions';
 import AppTitleBarButtons from '../components/AppTitleBarButtons';
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapStateToProps = (state) => {
+    return {
+        maximized: state.maximized
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
     return {
         close: () => {
             dispatch(exit())
+        },
+        maximize: (max) => {
+            dispatch(maximize(max))
+        },
+        minimize: () => {
+            dispatch(minimize(true))
         }
     }
 }
 
 const AppTitleBarButtonsContainer = connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(AppTitleBarButtons);
 

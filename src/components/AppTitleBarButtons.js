@@ -5,9 +5,9 @@ export default class AppTitleBarButtons extends Component {
     render() {
         return (
             <div className="app-title-bar-buttons">
-                <Button>Minimize</Button>
-                <Button>Maximize</Button>
-                <Button onClick={this.props.close}>Close</Button>
+                <Button onClick={this.props.minimize}>🗕</Button>
+                <Button onClick={this.props.maximize.bind(null, !this.props.maximized)}>{this.props.maximized ? '🗗' : '🗖'}</Button>
+                <Button onClick={this.props.close}>×</Button>
             </div>
         );
     }

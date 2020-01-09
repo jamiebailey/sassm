@@ -3,7 +3,10 @@ import App from '../components/App';
 
 const mapStateToProps = (state) => {
     return {
-        visiblePage: state.visiblePage
+        visiblePage: state.visiblePage,
+        maximized: state.maximized,
+        minimized: state.minimized,
+        closed: state.closed
     }
 }
 
