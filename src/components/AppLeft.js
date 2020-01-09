@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Button from './elements/Button';
+import AppLeftMenuButton from '../containers/AppLeftMenuButton';
 
 export default class AppLeft extends Component {
     render() {
-        const items = this.props.items.map((item) => <li key={item.text}><Button onClick={item.onClick}>{item.text}</Button></li>);
+        const items = this.props.items.map((item) => <li key={item.text}><AppLeftMenuButton page={item.page}>{item.text}</AppLeftMenuButton></li>);
         return <div className="app-left"><ul>{items}</ul></div>
     }
 }
