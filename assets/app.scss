@@ -34,6 +34,10 @@ html, body {
     > .app-left, > .app-page {
         float: left;
         height: 100%;
+        > .title {
+            text-transform: uppercase;
+            font-weight: bold;
+        }
     }
     > .app-left {
         width: $app-left-width;
