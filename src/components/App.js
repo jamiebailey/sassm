@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { remote } from 'electron';
 import { visiblePage } from '../actions';
 import Left from './AppLeft';
 import Page from './elements/Page';
