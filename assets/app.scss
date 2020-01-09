@@ -2,10 +2,48 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 @import './scss/lib/reset.scss';
 
+@font-face {
+    font-family: 'pricedown';
+    src: url('./fonts/pricedown.woff2') format('woff2'),
+         url('./fonts/pricedown.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/// Stroke font-character
+/// @param  {Integer} $stroke - Stroke width
+/// @param  {Color}   $color  - Stroke color
+/// @return {List}            - text-shadow list
+@function stroke($stroke, $color) {
+    $shadow: ();
+    $from: $stroke*-1;
+    @for $i from $from through $stroke {
+     @for $j from $from through $stroke {
+        $shadow: append($shadow, $i*1px $j*1px 0 $color, comma);
+      }
+    }
+    @return $shadow;
+  }
+  /// Stroke font-character
+  /// @param  {Integer} $stroke - Stroke width
+  /// @param  {Color}   $color  - Stroke color
+  /// @return {Style}           - text-shadow
+  @mixin stroke($stroke, $color) {
+    text-shadow: stroke($stroke, $color);
+  }
+
+%gta-text {
+    font-family: 'pricedown';
+    letter-spacing: 0.2em;
+    @include stroke(2, black);
+}
+
 $primary-color: #DDD;
 $primary-background-color: #111;
 $primary-font-family: 'Roboto';
 $primary-font-size: 14px;
+
+$gta-font-family: 'pricedown';
 
 $button-color: $primary-color;
 $button-background-color: lighten($primary-background-color, 10%);
@@ -62,6 +100,68 @@ body {
     height: calc(100% - #{$padding * 2});
 }
 
+.gta-save-info {
+    background-color: lighten($primary-background-color, 5%);
+    padding: $padding;
+    width: 100%;
+    height: 80px;
+    float: left;
+    margin-bottom: $padding;
+    > .file-info {
+        height: 100%;
+        float: left;
+        width: calc(100% - 150px);
+        > .save-name {
+            font-weight: bold;
+        }
+        > .filename {
+            font-size: 12px;
+        }
+    }
+    > .player-info {
+        float: left;
+        width: 150px;
+        height: 100%;
+        text-align: right;
+        font-size: 1.4rem;
+        background-color: $primary-background-color;
+        padding: $padding;
+        > .time {
+            @extend %gta-text;
+        }
+        > .bars {
+            width: 100%;
+            > .armor, > .health {
+                float: right;
+                width: 100%;
+                > div {
+                    float: right;
+                }
+            }
+        }
+        > .money {
+            @extend %gta-text;
+            color: #36682c;
+        }
+    }
+}
+
+.gta-bar {
+    height: 8px;
+    width: 100%;
+    border: 2px solid #000;
+    background-color: #747474;
+    > .progress {
+        height: 4px;
+    }
+    &.health > .progress {
+        background-color: #bd2220;
+    }
+    &.armor > .progress {
+        background-color: #e0e0e0;
+    }
+}
+
 .app {
     position: fixed;
     top: 0;
@@ -92,11 +192,11 @@ body {
         padding-left: 0;
         > .title {
             width: 100%;
-            height: 25px;
+            height: 30px;
             margin-bottom: $padding;
         }
         > .content {
-            height: calc(100% - #{$padding});
+            height: calc(100% - #{$padding * 2} - 30px);
         }
     }
     > .app-title-bar-buttons {
