@@ -3,7 +3,14 @@ import { EXIT, SET_VISIBLE_PAGE, visiblePage } from './actions';
 
 const initialState = {
     visiblePage: visiblePage.SHOW_ACTIVE,
-    exit: false
+    maximized: false,
+    exit: false,
+    active: {
+        path: '',
+    },
+    storage: {
+        path: ''
+    }
 }
 
 export default function app(state = initialState, action) {

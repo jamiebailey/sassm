@@ -62,4 +62,10 @@ html, body {
             height: calc(100% - #{$padding});
         }
     }
+    > .app-title-bar-buttons {
+        position: fixed;
+        z-index: 10000;
+        top: 0;
+        right: 0;
+    }
 }

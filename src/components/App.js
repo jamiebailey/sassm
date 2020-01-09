@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { visiblePage } from '../actions';
 import Left from './AppLeft';
 import Page from './elements/Page';
+import TitleBarButtons from '../containers/AppTitleBarButtons';
 
 export default class App extends Component {
     render() {
@@ -23,6 +24,7 @@ export default class App extends Component {
                     {text: 'Exit', type: 'exit'}
                 ]} />
             {page}
+            <TitleBarButtons />
         </div>
     }
 }
