@@ -9,8 +9,8 @@ export default class GTASaveInfo extends Component {
         let maxHealth = (this.props.playerMaxHealth !== undefined) ? this.props.playerMaxHealth : 50;
 
         return <div className="gta-save-info">
+            <div className="save-name">{this.props.saveName.toUpperCase()}</div>
             <div className="file-info">
-                <div className="save-name">{this.props.saveName.toUpperCase()}</div>
                 <div className="filename">{this.props.filename}</div>
             </div>
             <div className="player-info">

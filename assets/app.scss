@@ -52,7 +52,7 @@ $button-hover-background-color: lighten($button-background-color, 15%);
 $button-active-color: $primary-color;
 $button-active-background-color: lighten($button-background-color, 20%);
 
-$app-left-width: 150px;
+$app-left-width: 100px;
 $app-page-width: calc(100% - #{$app-left-width});
 
 $padding: 5px;
@@ -70,7 +70,7 @@ button, input[type="submit"], input[type="reset"] {
 	padding: $padding $padding * 2;
     font-family: $primary-font-family;
     font-size: $primary-font-size;
-	cursor: pointer;
+	cursor: default;
     outline: none;
     &:hover {
         color: $button-hover-color;
@@ -103,17 +103,19 @@ body {
 .gta-save-info {
     background-color: lighten($primary-background-color, 5%);
     padding: $padding;
-    width: 100%;
-    height: 80px;
+    width: 400px;
+    height: 100px;
     float: left;
     margin-bottom: $padding;
+    margin-right: $padding;
+    > .save-name {
+        font-weight: bold;
+        height: 20px;
+    }
     > .file-info {
         height: 100%;
         float: left;
         width: calc(100% - 150px);
-        > .save-name {
-            font-weight: bold;
-        }
         > .filename {
             font-size: 12px;
         }
@@ -121,7 +123,7 @@ body {
     > .player-info {
         float: left;
         width: 150px;
-        height: 100%;
+        height: calc(100% - 20px);
         text-align: right;
         font-size: 1.4rem;
         background-color: $primary-background-color;
