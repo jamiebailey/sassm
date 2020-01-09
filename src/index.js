@@ -13,7 +13,6 @@ import App from './containers/App';
 
 const store = createStore(reducers);
 
-
 let window = remote.getCurrentWindow();
 
 window.on('restore', () => {

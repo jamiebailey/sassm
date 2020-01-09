@@ -47,6 +47,8 @@ button, input[type="submit"], input[type="reset"] {
 html, body {
     color: $primary-color;
     background-color: $primary-background-color;
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: $primary-font-family;
     font-size: 16px;
     height: 100%;
