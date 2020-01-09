@@ -1,12 +1,19 @@
 import { connect } from 'react-redux';
-import { setVisiblePage } from '../actions';
+import { exit, setVisiblePage } from '../actions';
 import Button from '../components/elements/Button';
 
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         onClick: () => {
-            dispatch(setVisiblePage(ownProps.page))
+            switch(ownProps.type) {
+                case 'navigate':
+                    dispatch(setVisiblePage(ownProps.page))
+                    break;
+                case 'exit':
+                    dispatch(exit());
+                    break;
+            }
         }
     }
 }

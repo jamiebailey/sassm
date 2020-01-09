@@ -18,8 +18,9 @@ export default class App extends Component {
 
         return <div className="app">
             <Left items={[
-                    {text: 'Active', page: visiblePage.SHOW_ACTIVE},
-                    {text: 'Storage', page: visiblePage.SHOW_STORAGE}
+                    {text: 'Active', type: 'navigate', page: visiblePage.SHOW_ACTIVE},
+                    {text: 'Storage', type: 'navigate', page: visiblePage.SHOW_STORAGE},
+                    {text: 'Exit', type: 'exit'}
                 ]} />
             {page}
         </div>
