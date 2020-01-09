@@ -19,30 +19,22 @@ export default function app(state = initialState, action) {
     let res = {};
     switch(action.type) {
         case SET_VISIBLE_PAGE:
-            res = Object.assign({}, state, {
+            return Object.assign({}, state, {
                 visiblePage: action.page
             })
-            break;
         case MAXIMIZE:
-            res = Object.assign({}, state, {
+            return Object.assign({}, state, {
                 maximized: action.maximize
             })
-            break;
         case MINIMIZE:
-            res = Object.assign({}, state, {
+            return Object.assign({}, state, {
                 minimized: action.minimize
             })
-            break;
         case EXIT:
-            res = Object.assign({}, state, {
+            return Object.assign({}, state, {
                 exit: true
             })
-            break;
         default:
-            res = Object.assign({}, state);
-            break;
+            return Object.assign({}, state);
     }
-    return Object.assign(res, {
-        lastAction: action
-    });
 }
